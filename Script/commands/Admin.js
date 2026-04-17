@@ -3,53 +3,78 @@ const request = require("request");
 const fs = require("fs-extra");
 const moment = require("moment-timezone");
 
+// 🔒 ENCRYPTED DATA
+const NAME = Buffer.from("VURBWSBIQVNBTiBTSU0=", "base64").toString();
+const LOCATION = Buffer.from("S0lTSE9SRUdBTkosIEJE", "base64").toString();
+const FB = Buffer.from("ZmFjZWJvb2suY29tLzYxNTY4NDExMzEwNzQ4", "base64").toString();
+const MSG = Buffer.from("NjE1Njg0MTEzMTA3NDg=", "base64").toString();
+const WA = Buffer.from("Kzg4MDE3ODkxMzgxNTc=", "base64").toString();
+
 module.exports.config = {
- name: "admin",
- version: "1.0.0",
- hasPermssion: 0,
- credits: "SHAHADAT SAHU",
- description: "Show Owner Info",
- commandCategory: "info",
- usages: "admin",
- cooldowns: 2
+  name: "admin",
+  version: "2.0.0-encrypted",
+  hasPermssion: 0,
+  credits: "SIYAM SECURE",
+  description: "Encrypted Owner Info",
+  commandCategory: "info",
+  usages: "admin",
+  cooldowns: 2
 };
 
 module.exports.run = async function({ api, event }) {
- const time = moment().tz("Asia/Dhaka").format("DD/MM/YYYY hh:mm:ss A");
+  const time = moment().tz("Asia/Dhaka").format("DD/MM/YYYY hh:mm:ss A");
 
- const callback = () => api.sendMessage({
- body: `
-┌───────────────⭓
-│ 𝗢𝗪𝗡𝗘𝗥 𝗗𝗘𝗧𝗔𝗜𝗟𝗦
-├───────────────
-│ 👤 𝐍𝐚𝐦𝐞 : 𝐒𝐡𝐚𝐡𝐚𝐝𝐚𝐭 𝐈𝐬𝐥𝐚𝐦
-│ 🚹 𝐆𝐞𝐧𝐝𝐞𝐫 : 𝐌𝐚𝐥𝐞
-│ ❤️ 𝐑𝐞𝐥𝐚𝐭𝐢𝐨𝐧 : 𝐒𝐢𝐧𝐠𝐥𝐞
-│ 🎂 𝐀𝐠𝐞 : 𝟏𝟖+
-│ 🕌 𝐑𝐞𝐥𝐢𝐠𝐢𝐨𝐧 : 𝐈𝐬𝐥𝐚𝐦
-│ 🎓 𝐄𝐝𝐮𝐜𝐚𝐭𝐢𝐨𝐧 : 𝐇𝐒𝐂 (𝟐𝟎𝟐𝟔)
-│ 🏡 𝐀𝐝𝐝𝐫𝐞𝐬𝐬 : 𝐊𝐡𝐚𝐠𝐫𝐚𝐜𝐡𝐡𝐚𝐫𝐢
-└───────────────⭓
+  const callback = () => api.sendMessage({
+    body: `
+╔════════════════════════════════════════════╗
+║   ⚡👑  𝗩𝗜𝗣 𝗡𝗘𝗢𝗡 𝗚𝗟𝗜𝗧𝗖𝗛 𝗣𝗥𝗢𝗙𝗜𝗟𝗘 👑⚡   ║
+╚════════════════════════════════════════════╝
 
-┌───────────────⭓
-│ 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗟𝗜𝗡𝗞𝗦
-├───────────────
-│ 📘 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸:
-│ https://fb.com/100001039692046
-│ 💬 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽:
-│ https://wa.me/01882333052
-└───────────────⭓
+▓▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▓
 
-┌───────────────⭓
-│ 🕒 𝗨𝗽𝗱𝗮𝘁𝗲𝗱 𝗧𝗶𝗺𝗲
-├───────────────
-│ ${time}
-└───────────────⭓
- `,
- attachment: fs.createReadStream(__dirname + "/cache/owner.jpg")
- }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/owner.jpg"));
+      ✦  SYSTEM ONLINE :: ROYAL MODE  ✦
 
- return request("https://i.imgur.com/idyXtoO.jpeg")
- .pipe(fs.createWriteStream(__dirname + '/cache/owner.jpg'))
- .on('close', () => callback());
+▓▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▓
+
+╔═══ 💠 PROFILE DATA 💠 ═══╗
+
+➤ 🧑‍💼 NAME      :: ${NAME}
+➤ 💖 STATUS    :: SINGLE
+➤ 🎂 AGE       :: 17+
+➤ 🎓 STUDY     :: CLASS 10
+➤ 💼 POSITION :: STUDENT
+➤ 🏡 LOCATION :: ${LOCATION}
+
+╚══════════════════════════════╝
+
+
+╔═══ 📡 CONTACT NETWORK ═══╗
+
+➤ 📘 FACEBOOK   :: ${FB}
+➤ 💬 MESSENGER  :: ${MSG}
+➤ 📞 WHATSAPP   :: ${WA}
+
+╚══════════════════════════════╝
+
+
+╔═══ ⚙️ SYSTEM CORE ═══╗
+
+➤ 🤖 BOT NAME   :: SIYAM CHAT BOT
+➤ 💎 VERSION    :: 2.0 VIP NEON GLITCH
+➤ 🟢 STATUS     :: ONLINE
+➤ ⏰ TIME       :: ${time}
+
+╚══════════════════════════════╝
+
+
+▓▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▓
+      🔥 DREAM • WORK • RULE YOUR LIFE 🔥
+▓▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▓
+`,
+    attachment: fs.createReadStream(__dirname + "/cache/owner.jpg")
+  }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/owner.jpg"));
+
+  return request("https://i.imgur.com/QCHmU8Z.jpeg")
+    .pipe(fs.createWriteStream(__dirname + '/cache/owner.jpg'))
+    .on('close', () => callback());
 };
